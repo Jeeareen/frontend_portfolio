@@ -1,3 +1,22 @@
+@import "tailwindcss";
+
+@utility preserve-3d {
+  transform-style: preserve-3d;
+}
+
+@utility backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+@utility rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+@utility perspective-1000 {
+  perspective: 1000px;
+}
+
 :root {
   --text: #6b6375;
   --text-h: #08060d;
