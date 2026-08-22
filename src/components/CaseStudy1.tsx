@@ -1,7 +1,115 @@
+import { motion } from 'motion/react';
+import { Link } from 'react-router-dom';
+import previewImage from '../assets/soloberty-preview.png';
+
 export default function CaseStudy1() {
+  const keyDecisions = [
+    {
+      title: 'High-Performance 3D Card Stack',
+      description: 'Snappy, UX-friendly 3D card animations optimized by rendering only 5 cards at a time — maximizing performance and delighting short attention spans.'
+    },
+    {
+      title: 'Psychology-Driven 2x Undo Limit',
+      description: 'Allows only 2x undo actions to curb decision paralysis, forgiving accidental swipes without rewarding mindless backtracking.'
+    },
+    {
+      title: 'Instant Profile Preview',
+      description: 'Tap card to seamlessly toggle detailed bio & interests without breaking swipe momentum or state.'
+    }
+  ];
+
   return (
-    <section>
-      <h1>Case Study 1</h1>
+    <section className="py-24 px-6 bg-[#FAFAFA] text-[#111827] border-t border-gray-200/60">
+      <div className="max-w-5xl mx-auto space-y-12">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="flex flex-col items-center text-center space-y-4 w-full"
+        >
+          <span className="inline-block px-3.5 py-1 rounded-full bg-[#FFD070]/20 border border-[#FFD070]/50 text-xs font-semibold uppercase tracking-wider text-[#111827] font-['Saira_Semi_Condensed']">
+            Featured Case Study
+          </span>
+          <h1 className="text-3xl md:text-5xl font-bold font-['Atkinson_Hyperlegible'] tracking-tight text-[#111827] text-center">
+            Soloberty MatchCards
+          </h1>
+          <p className="text-lg md:text-xl font-['Atkinson_Hyperlegible'] text-gray-600 max-w-xl mx-auto text-center leading-relaxed">
+            Rethinking social discovery card stacks — built for how it feels to use, not just how it looks.
+          </p>
+        </motion.div>
+
+        {/* Screenshot / Image Showcase */}
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="relative group rounded-2xl overflow-hidden border border-gray-200 bg-white shadow-xl p-2 md:p-4 transition-all hover:shadow-2xl"
+        >
+          <div className="relative rounded-xl overflow-hidden bg-gray-100 aspect-video md:aspect-[16/9] flex items-center justify-center">
+            <img
+              src={previewImage}
+              alt="Soloberty MatchCards Interface Screenshot"
+              className="w-full h-full object-cover object-center transform group-hover:scale-[1.01] transition-transform duration-500 ease-out"
+            />
+          </div>
+        </motion.div>
+
+        {/* Key UX Decisions Grid */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4"
+        >
+          {keyDecisions.map((decision, index) => (
+            <div
+              key={index}
+              className="p-6 rounded-xl bg-white border border-gray-200/80 shadow-xs flex flex-col justify-between"
+            >
+              <div className="space-y-2">
+                <span className="text-xs font-bold font-['Saira_Semi_Condensed'] text-gray-400 tracking-widest uppercase">
+                  0{index + 1}
+                </span>
+                <h3 className="text-lg font-bold font-['Atkinson_Hyperlegible'] text-[#111827]">
+                  {decision.title}
+                </h3>
+                <p className="text-sm font-['Atkinson_Hyperlegible'] text-gray-600 leading-relaxed">
+                  {decision.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </motion.div>
+
+        {/* CTA Link to /demo */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, delay: 0.3 }}
+          className="flex justify-center pt-6"
+        >
+          <Link
+            to="/demo"
+            className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-[#FFD070] text-[#111827] font-semibold text-base tracking-wide font-['Saira_Semi_Condensed'] uppercase shadow-md hover:bg-[#ffe099] hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 group cursor-pointer"
+          >
+            <span>Wanna try?</span>
+            <svg
+              className="w-5 h-5 transform group-hover:translate-x-1 transition-transform"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </Link>
+        </motion.div>
+      </div>
     </section>
-  )
+  );
 }
+
