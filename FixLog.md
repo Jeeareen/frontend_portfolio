@@ -34,15 +34,23 @@
 
 ### 3. Tradeoffs Card Height & Spring Stiffness in About
 - **What was broken:** On narrow mobile screens, the Tradeoffs card fixed height (`h-[310px]`) was too short for the longer description text, causing text overflow/clipping at the bottom.
-- **What changed:** Reduced spring stiffness to 90% (`stiffness: 405` for active pill and `450` for card carousel) and adjusted mobile card height to `h-[450px] xs:h-[390px]` (keeping desktop bounds intact) in [`About.tsx`](file:///c:/dev/frontend_portfolio/src/components/About.tsx).
+- **What changed:** Reduced spring stiffness to 90% (`stiffness: 405` for active pill and `450` for card carousel), set tab pill damping to `30`, and adjusted mobile card height to `h-[450px] xs:h-[390px]` in [`About.tsx`](file:///c:/dev/frontend_portfolio/src/components/About.tsx).
 
 
-### 4. Contact Form Submit Button Press Delay & Scaling
-- **What was broken:** CSS class `transition-all` on the button created a 150ms delay on active press transforms, and the press scale (`0.97`) felt too large and sluggish.
+
+### 4. Button Animation Consistency Across Desktop & Mobile
+- **What was broken:** CSS class `transition-all` on the submit button created a 150ms delay on active press transforms, and mobile button press feedback did not match desktop hover/press animations.
+- **What changed:** Standardized all interactive site buttons (Header GitHub/LinkedIn, Direct Contact, CV View/Download, Send Message/Retry, Case Study buttons) to use exact identical hover float and active tap press animation classes (`shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 cursor-pointer`).
+
 ### 5. Soloberty GitHub Repository Link in Case Study
 - **What was broken:** The Case Study section only had a link to the interactive demo (`/demo`) and lacked a direct link to the Soloberty GitHub repository.
+- **What changed:** Added an official `GitHub Repo` CTA button pointing directly to `https://github.com/Jeeareen/soloberty` next to the demo CTA in [`CaseStudy1.tsx`](file:///c:/dev/frontend_portfolio/src/components/CaseStudy1.tsx).
+
 ### 6. Desktop Contact Section Component Layout Refactoring
 - **What was broken:** The Contact section on desktop displayed 3 separate cards side-by-side in an unbalanced 5:7 column split, looking disjointed on desktop viewports.
+- **What changed:** Combined the Direct Contact (mailto + socials) and Resume/CV components into a single, beautifully balanced 2-column top card positioned directly above the full-width Contact Form in [`Contact.tsx`](file:///c:/dev/frontend_portfolio/src/components/Contact.tsx).
+
 ### 7. Image Asset Size Audit & Compression Utility (>2MB)
 - **What was broken:** Large images over 2MB can slow down page loading and rendering on mobile viewports.
 - **What changed:** Audited all workspace image assets (all static images confirmed optimized under 130KB) and implemented [`imageOptimizer.ts`](file:///c:/dev/frontend_portfolio/src/utils/imageOptimizer.ts) using HTML Canvas to automatically compress any image files exceeding 2MB before rendering.
+

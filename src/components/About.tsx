@@ -135,7 +135,7 @@ export default function About() {
                     <motion.div
                       layoutId="activeAboutTab"
                       className="absolute inset-0 h-10 w-full bg-[#FFD070]/30 border border-[#FFD070]/60 rounded-full"
-                      transition={{ type: 'spring', stiffness: 405, damping: 28 }}
+                      transition={{ type: 'spring', stiffness: 405, damping: 30 }}
                     />
                   )}
                   <span className="relative z-10 text-center leading-[1.15] min-[373px]:whitespace-nowrap max-[372px]:whitespace-normal">{pillar.label}</span>
