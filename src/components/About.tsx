@@ -135,7 +135,7 @@ export default function About() {
                     <motion.div
                       layoutId="activeAboutTab"
                       className="absolute inset-0 h-10 w-full bg-[#FFD070]/30 border border-[#FFD070]/60 rounded-full"
-                      transition={{ type: 'spring', stiffness: 450, damping: 28 }}
+                      transition={{ type: 'spring', stiffness: 405, damping: 28 }}
                     />
                   )}
                   <span className="relative z-10 text-center leading-[1.15] min-[373px]:whitespace-nowrap max-[372px]:whitespace-normal">{pillar.label}</span>
@@ -162,8 +162,8 @@ export default function About() {
             </svg>
           </button>
 
-          {/* Active Card Display (Increased Height + Directional Carousel Slide) */}
-          <div className="w-full max-w-2xl h-[500px] xs:h-[440px] sm:h-[340px] md:h-[320px] flex items-center justify-center overflow-hidden relative">
+          {/* Active Card Display (Reduced Mobile Height + Directional Carousel Slide) */}
+          <div className="w-full max-w-2xl h-[450px] xs:h-[390px] sm:h-[340px] md:h-[320px] flex items-center justify-center overflow-hidden relative">
             <AnimatePresence mode="popLayout" custom={direction}>
               <motion.div
                 key={activePillar.id}
@@ -172,7 +172,7 @@ export default function About() {
                 initial="enter"
                 animate="center"
                 exit="exit"
-                transition={{ type: 'spring', stiffness: 500, damping: 38 }}
+                transition={{ type: 'spring', stiffness: 450, damping: 38 }}
                 drag="x"
                 dragConstraints={{ left: 0, right: 0 }}
                 onDragEnd={handleDragEnd}

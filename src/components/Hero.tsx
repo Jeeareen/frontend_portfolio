@@ -41,6 +41,7 @@ export default function Hero({
             <motion.div
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
+              onClick={() => setIsHovered((prev) => !prev)}
               className="absolute -top-[20px] -right-2 md:-right-6 inline-flex items-center cursor-pointer select-none bg-white border border-gray-200/90 shadow-xs rounded-full py-1.5 px-2.5 transition-all hover:border-gray-300 z-10"
             >
               <span className="relative flex h-2.5 w-2.5 shrink-0">
