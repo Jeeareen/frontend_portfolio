@@ -128,17 +128,17 @@ export default function About() {
                 <button
                   key={pillar.id}
                   onClick={() => handleSelectTab(index)}
-                  className={`relative px-4 py-2 text-xs font-semibold uppercase tracking-wider font-['Saira_Semi_Condensed'] transition-colors cursor-pointer rounded-full focus:outline-none select-none ${isActive ? 'text-[#111827]' : 'text-gray-500 hover:text-gray-900'
+                  className={`relative h-10 px-2.5 sm:px-4 flex items-center justify-center text-center text-[10px] sm:text-xs font-semibold uppercase tracking-wider font-['Saira_Semi_Condensed'] leading-[1.15] transition-colors cursor-pointer rounded-full focus:outline-none select-none ${isActive ? 'text-[#111827]' : 'text-gray-500 hover:text-gray-900'
                     }`}
                 >
                   {isActive && (
                     <motion.div
                       layoutId="activeAboutTab"
-                      className="absolute inset-0 bg-[#FFD070]/30 border border-[#FFD070]/60 rounded-full"
+                      className="absolute inset-0 h-10 w-full bg-[#FFD070]/30 border border-[#FFD070]/60 rounded-full"
                       transition={{ type: 'spring', stiffness: 450, damping: 28 }}
                     />
                   )}
-                  <span className="relative z-10">{pillar.label}</span>
+                  <span className="relative z-10 text-center leading-[1.15] min-[373px]:whitespace-nowrap max-[372px]:whitespace-normal">{pillar.label}</span>
                 </button>
               );
             })}
@@ -162,8 +162,8 @@ export default function About() {
             </svg>
           </button>
 
-          {/* Active Card Display (Fixed Dimensions + Directional Carousel Slide) */}
-          <div className="w-full max-w-2xl h-[310px] sm:h-[280px] md:h-[270px] flex items-center justify-center overflow-hidden relative">
+          {/* Active Card Display (Increased Height + Directional Carousel Slide) */}
+          <div className="w-full max-w-2xl h-[500px] xs:h-[440px] sm:h-[340px] md:h-[320px] flex items-center justify-center overflow-hidden relative">
             <AnimatePresence mode="popLayout" custom={direction}>
               <motion.div
                 key={activePillar.id}
@@ -176,7 +176,7 @@ export default function About() {
                 drag="x"
                 dragConstraints={{ left: 0, right: 0 }}
                 onDragEnd={handleDragEnd}
-                className="w-full h-full pt-8 pb-10 px-6 sm:px-8 md:px-10 rounded-2xl bg-white border border-gray-200/90 touch-pan-y cursor-grab active:cursor-grabbing select-none flex flex-col justify-start items-center absolute"
+                className="w-full h-full pt-6 sm:pt-8 pb-6 sm:pb-10 px-5 sm:px-8 md:px-10 rounded-2xl bg-white border border-gray-200/90 touch-pan-y cursor-grab active:cursor-grabbing select-none flex flex-col justify-start items-center absolute"
               >
                 <div className="space-y-3 md:space-y-4 text-center flex flex-col items-center justify-start w-full">
                   <span className="inline-block text-xs font-bold font-['Saira_Semi_Condensed'] text-[#111827] uppercase tracking-wider bg-[#FFD070]/20 border border-[#FFD070]/50 px-3 py-1 rounded-md">

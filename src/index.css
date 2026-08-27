@@ -17,6 +17,19 @@
   perspective: 1000px;
 }
 
+@keyframes eyeBlink {
+  0%, 100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(0.15);
+  }
+}
+
+.group:hover .animate-eye-blink {
+  animation: eyeBlink 0.35s ease-in-out 1;
+}
+
 :root {
   --text: #111827;
   --text-h: #111827;
